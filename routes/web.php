@@ -23,5 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/myview', 'HomeController@myview');
 Route::get('/good', 'GoodController@index');
+Route::get('/good/show/{id}', 'GoodController@show');
+
 
 

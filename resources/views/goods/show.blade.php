@@ -10,16 +10,13 @@
                     <div class="panel-body">
                         <table class="table">
                             <tr>
-                                <th></th>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Price</th>
                                 <th>Controls</th>
                             </tr>
-                            @foreach($goods as $good)
+
                                 <tr>
-                                 <td>   <a href="/good/show/{{$good->id}}">Посмотреть</a>
-                                 </td>
                                     <td>{{$good->id}}}</td>
                                     <td>{{$good->name}}}</td>
                                     <td>{{$good->price}}</td>
@@ -33,7 +30,6 @@
                                     </td>
                                 </tr>
 
-                            @endforeach
                         </table>
                     </div>
                 </div>
