@@ -22,8 +22,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/myview', 'HomeController@myview');
-Route::get('/good', 'GoodController@index');
-Route::get('/good/show/{id}', 'GoodController@show');
+Route::get('/good', 'GoodController@index'); //tovaru
+Route::get('/good/show/{id}', 'GoodController@show'); //pokazat 1 tovar
+
+Route::get('/good/create', 'GoodController@create'); //sozdat
+Route::post('/good/store', 'GoodController@store'); //sohranit
 
 
 

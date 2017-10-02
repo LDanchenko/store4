@@ -6,23 +6,25 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Goods</div>
-
+                    <div>
+                        <a href="/good/create">
+                            <button>Создать товар</button>
+                        </a>
+                    </div>
                     <div class="panel-body">
                         <table class="table">
                             <tr>
-                                <th></th>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
                                 <th>Controls</th>
                             </tr>
                             @foreach($goods as $good)
                                 <tr>
-                                 <td>   <a href="/good/show/{{$good->id}}">Посмотреть</a>
-                                 </td>
-                                    <td>{{$good->id}}}</td>
-                                    <td>{{$good->name}}}</td>
-                                    <td>{{$good->price}}</td>
+
+                                    <td><a href="/good/show/{{$good->id}}">{{$good->id}}</a></td>
+                                    <td><a href="/good/show/{{$good->id}}">{{$good->name}}</a></td>
+                                    <td><a href="/good/show/{{$good->id}}">{{$good->price}}</a></td>
                                     <td>
                                         <button>
                                             Удалить
