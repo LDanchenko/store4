@@ -16,6 +16,9 @@ class GoodsFix extends Migration
 
         Schema::table('goods', function ($table) {
             $table->integer('price')->change();
+            $table->string('description');
+            $table->integer('categories');
+            $table->string('image');
         });
     }
 

@@ -16,9 +16,10 @@
 Route::get('/', 'HomeController@index'); //все товары
 
 Auth::routes();
-
+//главная
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/myview', 'HomeController@myview');
+
+
 //маршруты доступны только авторизированным
 Route::group(['middleware' => 'admin', 'prefix' => 'good'], function () {
 

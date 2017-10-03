@@ -25,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $goods = Good::all();
+        $goods = Good::getAllGoods();
         $data['goods'] = $goods;
+
         return view('store.all', $data);
     }
 
