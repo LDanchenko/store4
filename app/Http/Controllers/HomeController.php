@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Good;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth'); //убрали логин
     }
 
     /**
@@ -23,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $goods = Good::all();
+        $data['goods'] = $goods;
+        return view('store.all', $data);
     }
 
     public function myview()

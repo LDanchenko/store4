@@ -15,20 +15,16 @@
                     </div>
 
                     <div class="panel-body">
-                        <form action="/good/store" method="post" enctype="multipart/form-data">
+                        <form action="/good/update/{{$good->id}}" method="post">
                             {{csrf_field()}}
                             <table class="table">
                                 <tr>
                                     <td>name</td>
-                                    <td><input type="text" name="name"></td>
+                                    <td><input type="text" name="name" value="{{$good->name}}"></td>
                                 </tr>
                                 <tr>
                                     <td>price</td>
-                                    <td><input type="text" name="price"></td>
-                                </tr>
-                                <tr>
-                                    <td>image</td>
-                                    <td><input type="file" name="image"></td>
+                                    <td><input type="text" name="price" value="{{$good->price}}"></td>
                                 </tr>
                                 <tr>
                                     <td></td>

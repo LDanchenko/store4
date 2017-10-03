@@ -1,0 +1,31 @@
+h1 {
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-size: 18px;
+}
+
+.container_item {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.catalog {
+    width: 95%;
+    margin: 30px;
+    background: #ecf0f1;
+    box-shadow: 0 0 3px #999999;
+}
+
+.item {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+    min-height: 75px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    background: grey;
+    border: 2px solid #2c3e50;
+}
+

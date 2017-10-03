@@ -21,12 +21,16 @@
                                     <td>{{$good->name}}}</td>
                                     <td>{{$good->price}}</td>
                                     <td>
-                                        <button>
-                                            Удалить
-                                        </button>
-                                        <button>
-                                            Редактировать
-                                        </button>
+                                        <a href="/good/destroy/{{$good->id}}">
+                                            <button>
+                                                Удалить
+                                            </button>
+                                        </a>
+                                        <a href="/good/edit/{{$good->id}}">
+                                            <button>
+                                                Редактировать
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
 

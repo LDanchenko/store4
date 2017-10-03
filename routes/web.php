@@ -13,20 +13,26 @@
 
 //все маршруты пишем здесь
 
-Route::get('/', function () {
-    return view('welcome');
-    //из папки auth.login
-});
+Route::get('/', 'HomeController@index'); //все товары
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/myview', 'HomeController@myview');
-Route::get('/good', 'GoodController@index'); //tovaru
-Route::get('/good/show/{id}', 'GoodController@show'); //pokazat 1 tovar
+//маршруты доступны только авторизированным
+Route::group(['middleware' => 'admin', 'prefix' => 'good'], function () {
 
-Route::get('/good/create', 'GoodController@create'); //sozdat
-Route::post('/good/store', 'GoodController@store'); //sohranit
+    Route::get('/', 'GoodController@index'); //tovaru
+    Route::get('/show/{id}', 'GoodController@show'); //pokazat 1 tovar
+    Route::get('/create', 'GoodController@create'); //sozdat
+    Route::post('/store', 'GoodController@store'); //sohranit
+    Route::get('/edit/{id}', 'GoodController@edit'); //izmenut
+    Route::post('/update/{id}', 'GoodController@update'); //sohranit v baze
+    Route::get('/destroy/{id}', 'GoodController@destroy'); //sohranit v baze
+});
 
+Route::get('/access_denied', function (){
+        return ('доступ к товарам только для администратора =Р'); //сделать вью
+});
 
 

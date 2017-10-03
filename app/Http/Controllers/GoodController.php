@@ -33,16 +33,55 @@ class GoodController extends Controller
         //validacia
         $this->validate($request, [
             'name' => 'required',
-            'price' => 'numeric|required'
+            'price' => 'numeric|required',
+            'image' => 'image'
         ]);
-
 
         $good = new Good();
         $good->name = $request->name;
         $good->price = $request->input('price');
         $good->save();
 
+        $image = $request->file('image');
+
+        if ($image) {
+            // echo  'file found';
+            $image->move('uploads', $good->id .'.jpg'); //???
+        }
+
         return redirect('/good/show/' . $good->id);
+    }
+
+    public function edit($id)
+    {
+
+        $good = Good::find($id); //нашли товар по id
+        $data['good'] = $good;
+        return view('goods.edit', $data);
+    }
+
+    public function update($id, Request $request)
+    {
+
+        //validacia
+        $this->validate($request, [
+            'name' => 'required',
+            'price' => 'numeric|required'
+        ]);
+
+        $good = Good::find($id);
+        $good->name = $request->name;
+        $good->price = $request->input('price');
+        $good->save();
+
+        return redirect('/good/show/' . $good->id);
+    }
+
+    public function destroy($id)
+    {
+        Good::destroy($id);
+        return redirect('/good/');
+        //$good = Good::find($id)->delete();
     }
 }
 
