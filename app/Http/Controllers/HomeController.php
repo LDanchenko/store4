@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth'); //убрали логин
+        // $this->middleware('auth'); //убрали логин
     }
 
     /**
@@ -28,7 +28,8 @@ class HomeController extends Controller
     {
         $goods = Good::getAllGoods();
         $data['goods'] = $goods;
-
+        $categories = Category::all();
+        $data['categories'] = $categories;
         return view('store.all', $data);
     }
 
@@ -37,10 +38,24 @@ class HomeController extends Controller
         $good = Good::find($id); //нашли товар по id
         $cat = Category::find($good->categories);
         $data['good'] = $good;
-        $data['cat']= $cat;
+        $data['cat'] = $cat;
         return view('store.show', $data);
     }
 
+    public function category($id)
+    {
+        $cat = Category::find($id); //нашли category по id
+        $data['cat'] = $cat;
+        $goods = Good::selectByCategory($id);
+        $data['goods'] = $goods;
+        return view('store.category', $data);
+    }
+
+    public function basket()
+    {
+        return view('store.basket');
+
+    }
 
 }
 

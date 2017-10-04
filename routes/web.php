@@ -18,6 +18,8 @@ Route::get('/', 'HomeController@index'); //все товары
 Auth::routes();
 //главная
 Route::get('/show/{id}', 'HomeController@show'); //pokazat 1 tovar
+Route::get('/category/{id}', 'HomeController@category'); //pokazat 1 categ
+Route::get('/basket/', 'HomeController@basket'); //korzina
 
 
 //маршруты доступны только авторизированным

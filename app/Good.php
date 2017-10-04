@@ -14,4 +14,8 @@ class Good extends Model
             ->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
             ->get();
     }
+
+    public static function selectByCategory($id){
+        return Good::where('categories', '=', $id)->get();
+    }
 }
