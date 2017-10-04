@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Good;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -31,9 +32,15 @@ class HomeController extends Controller
         return view('store.all', $data);
     }
 
-    public function myview()
+    public function show($id)
     {
-        return view('myview');
+        $good = Good::find($id); //нашли товар по id
+        $cat = Category::find($good->categories);
+        $data['good'] = $good;
+        $data['cat']= $cat;
+        return view('store.show', $data);
     }
+
+
 }
 

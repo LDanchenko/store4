@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index'); //все товары
 
 Auth::routes();
 //главная
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/show/{id}', 'HomeController@show'); //pokazat 1 tovar
 
 
 //маршруты доступны только авторизированным
