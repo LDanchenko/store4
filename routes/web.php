@@ -22,6 +22,14 @@ Route::get('/category/{id}', 'HomeController@category'); //pokazat 1 categ
 Route::get('/basket/', 'HomeController@basket'); //korzina
 
 
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+
+    Route::get('/', 'AdminController@index'); //tovaru
+    Route::get('/change/', 'AdminController@change'); //tovaru
+
+
+});
+
 //маршруты доступны только авторизированным
 Route::group(['middleware' => 'admin', 'prefix' => 'good'], function () {
 
@@ -34,8 +42,22 @@ Route::group(['middleware' => 'admin', 'prefix' => 'good'], function () {
     Route::get('/destroy/{id}', 'GoodController@destroy'); //sohranit v baze
 });
 
+
+Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
+
+    Route::get('/', 'CategoryController@index'); //категории
+    Route::get('/show/{id}', 'CategoryController@show'); //pokazat 1 tovar
+    Route::get('/create', 'CategoryController@create'); //sozdat
+    Route::post('/store', 'CategoryController@store'); //sohranit
+    Route::get('/edit/{id}', 'CategoryController@edit'); //izmenut
+    Route::post('/update/{id}', 'CategoryController@update'); //sohranit v baze
+    Route::get('/destroy/{id}', 'CategoryController@destroy'); //sohranit v baze
+});
+
+
+
 Route::get('/access_denied', function (){
-        return ('доступ к товарам только для администратора =Р'); //сделать вью
+        return ('доступ только для администратора =Р'); //сделать вью
 });
 
 
