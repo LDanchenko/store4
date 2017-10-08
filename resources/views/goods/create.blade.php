@@ -27,9 +27,24 @@
                                     <td><input type="text" name="price"></td>
                                 </tr>
                                 <tr>
+                                    <td>description</td>
+                                    <td><input type="text" name="description"></td>
+                                </tr>
+                                <tr>
+                                    <td>categories</td>
+
+                                    <td><select name="category">
+                                            @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->cat_name}}
+                                            @endforeach
+                                        </select></td>
+
+                                </tr>
+                                <tr>
                                     <td>image</td>
                                     <td><input type="file" name="image"></td>
                                 </tr>
+
                                 <tr>
                                     <td></td>
                                     <td><input type="submit"></td>

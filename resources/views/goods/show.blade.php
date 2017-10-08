@@ -10,29 +10,34 @@
                     <div class="panel-body">
                         <table class="table">
                             <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Category</th>
                                 <th>Controls</th>
                             </tr>
 
-                                <tr>
-                                    <td>{{$good->id}}}</td>
-                                    <td>{{$good->name}}}</td>
-                                    <td>{{$good->price}}</td>
-                                    <td>
-                                        <a href="/good/destroy/{{$good->id}}">
-                                            <button>
-                                                Удалить
-                                            </button>
-                                        </a>
-                                        <a href="/good/edit/{{$good->id}}">
-                                            <button>
-                                                Редактировать
-                                            </button>
-                                        </a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{$good->id}}}</td>
+                                <td>{{$good->name}}}</td>
+                                <td>{{$good->price}}</td>
+                                <td>{{$good->description}}</td>
+                                    <td>{{$cat->cat_name}}</td>
+
+                                <td>
+                                    <a href="/good/destroy/{{$good->id}}">
+                                        <button>
+                                            Удалить
+                                        </button>
+                                    </a>
+                                    <a href="/good/edit/{{$good->id}}">
+                                        <button>
+                                            Редактировать
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
 
                         </table>
                     </div>

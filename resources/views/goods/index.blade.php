@@ -17,6 +17,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Price</th>
+                                <th>Category</th>
                                 <th>Controls</th>
                             </tr>
                             @foreach($goods as $good)
@@ -25,6 +26,8 @@
                                     <td><a href="/good/show/{{$good->id}}">{{$good->id}}</a></td>
                                     <td><a href="/good/show/{{$good->id}}">{{$good->name}}</a></td>
                                     <td><a href="/good/show/{{$good->id}}">{{$good->price}}</a></td>
+                                    <td><a href="/categories/">{{$good->cat_name}}</a></td>
+
                                     <td>
                                         <a href="/good/destroy/{{$good->id}}">
                                         <button>

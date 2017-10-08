@@ -3,14 +3,19 @@
 @section('content')
     <div class="container_item">
         <div class="catalog">
-    @foreach($categories as $category)
-       <div style="display: inline-block; margin: 10px"> <a href="/category/{{$category->id}}">
-            {{$category->cat_name}}
-           </a> </div>
+            @foreach($categories as $category)
+                <div style="display: inline-block; margin: 10px"><a href="/category/{{$category->id}}">
+                        {{$category->cat_name}}
+                    </a></div>
 
-        @endforeach
-<div style="display: inline-block;margin-right: 10px"> <a href="/basket/"><img src="uploads/cart.png" width="20" height="20"> Корзина</a></div>
-    </div>
+            @endforeach
+            <div style="display: inline-block;margin-right: 10px"><a href="/cart/"><img src="uploads/cart.png"
+                                                                                          width="20" height="20">
+                    Корзина
+                    <span class="badge">{{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+
+                </a></div>
+        </div>
     </div>
 
     <div class="container_item">
@@ -25,7 +30,7 @@
                     <div><a href="/show/{{$good->id}}">Категория: {{$good->cat_name}}</a></div>
 
 
-                    <div class="element">    <a href="/good/edit/{{$good->id}}">
+                    <div class="element"><a href="/add-to-cart/{{$good->id}}">
                             <button>
                                 Заказать
                             </button>

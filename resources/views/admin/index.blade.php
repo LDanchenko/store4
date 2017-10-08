@@ -11,7 +11,7 @@
 
                     <div><a href="/good/">Goods</a></div>
                         <div><a href="/categories/">Categories</a></div>
-                        <div><a href="#">Orders</a></div>
+                        <div><a href="/admin/orders/">Orders</a></div>
                         <div><a href="/admin/change/">Change email</a></div>
 
                     </div>

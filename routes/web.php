@@ -19,14 +19,22 @@ Auth::routes();
 //главная
 Route::get('/show/{id}', 'HomeController@show'); //pokazat 1 tovar
 Route::get('/category/{id}', 'HomeController@category'); //pokazat 1 categ
-Route::get('/basket/', 'HomeController@basket'); //korzina
+
+Route::get('/add-to-cart/{id}', 'HomeController@AddToCart');
+Route::get('/cart/', 'HomeController@getCart');
+Route::get('/cart/makeOrder/', 'HomeController@makeOrder');
+Route::post('/cart/save', 'HomeController@save');
+Route::get('/cart/clear', 'HomeController@clear');
+
+
 
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
     Route::get('/', 'AdminController@index'); //tovaru
     Route::get('/change/', 'AdminController@change'); //tovaru
-
+    Route::post('/update/', 'AdminController@update'); //
+    Route::get('/orders/', 'AdminController@orders');
 
 });
 

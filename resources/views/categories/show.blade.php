@@ -17,9 +17,10 @@
                             </tr>
 
                                 <tr>
-                                    <td>{{$category->id}}}</td>
-                                    <td>{{$category->cat_name}}}</td>
+                                    <td>{{$category->id}}</td>
+                                    <td>{{$category->cat_name}}</td>
                                     <td>{{$category->description}}</td>
+
                                     <td>
                                         <a href="/categories/destroy/{{$category->id}}">
                                             <button>

@@ -7,8 +7,12 @@
         <h1>  {{$cat->cat_name}} </h1>
     </div>
     <div> Описание категории: {{$cat->description}} </div>
-    <div style="display: inline-block;margin-right: 10px"> <a href="/basket/"><img src="../uploads/cart.png" width="20" height="20"> Корзина</a></div>
-    </div>
+    <div style="display: inline-block;margin-right: 10px"><a href="/cart/"><img src="../uploads/cart.png"
+                                                                                width="20" height="20">
+            Корзина
+            <span class="badge">{{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+
+        </a></div>
     <div class="container_item">
         <div class="catalog">
             @foreach($goods as $good)
