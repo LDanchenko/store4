@@ -1,6 +1,9 @@
 @extends('layouts.app')
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
+
 @section('content')
+    {{csrf_field()}}
+
     <div class="container_item">
         <div class="catalog">
             @foreach($categories as $category)
@@ -30,11 +33,11 @@
                     <div><a href="/show/{{$good->id}}">Категория: {{$good->cat_name}}</a></div>
 
 
-                    <div class="element"><a href="/add-to-cart/{{$good->id}}">
-                            <button>
-                                Заказать
+                    <div class="element" style="color:black">
+                            <button onclick="addToCart({{$good->id}})" >
+                                 <p>Заказать</p>
                             </button>
-                        </a>
+
                     </div>
 
                 </div>
@@ -42,5 +45,7 @@
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"> </script>
 
 @endsection

@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/show/{id}', 'HomeController@show'); //pokazat 1 tovar
 Route::get('/category/{id}', 'HomeController@category'); //pokazat 1 categ
 
-Route::get('/add-to-cart/{id}', 'HomeController@AddToCart');
+Route::post('/add_to_cart/', 'HomeController@addToCart');
 Route::get('/cart/', 'HomeController@getCart');
 Route::get('/cart/makeOrder/', 'HomeController@makeOrder');
 Route::post('/cart/save', 'HomeController@save');

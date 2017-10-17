@@ -12,7 +12,7 @@ h1 {
 .catalog {
     width: 95%;
     margin: 30px;
-    background: #ecf0f1;
+    background: #4cf18d;
     box-shadow: 0 0 3px #999999;
 }
 
@@ -27,7 +27,7 @@ h1 {
     width: 240px;
     min-height: 75px;
     text-align: center;
-    color: #E0FFFF;
+    color: #01010b;
     border: 2px solid darkslategray;
 }
 

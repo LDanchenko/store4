@@ -35,6 +35,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $data['categories'] = $categories;
         $session = $request->session()->get('key');
+
         return view('store.all', $data);
     }
 
@@ -56,7 +57,14 @@ class HomeController extends Controller
         return view('store.category', $data);
     }
 
-    public function AddToCart(Request $request, $id)
+    public function addToCart(Request $request){
+      //  $id = $request->id;
+       // Cart::add('293ad', 'Product 1', 1, 9.99);
+       // return redirect()->to('/');
+        dd('ok');
+    }
+
+   /* public function AddToCart(Request $request, $id)
     {
 
         $product = Good::find($id);
@@ -67,7 +75,7 @@ class HomeController extends Controller
         $request->session()->put('cart', $cart);
         //тут еще надо сообщение
         return redirect()->to('/');
-    }
+    }*/
 
     public function getCart()
     {
