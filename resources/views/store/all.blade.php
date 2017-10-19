@@ -12,12 +12,10 @@
                     </a></div>
 
             @endforeach
-            <div style="display: inline-block;margin-right: 10px"><a href="/cart/"><img src="uploads/cart.png"
-                                                                                          width="20" height="20">
-                    Корзина
-                    <span class="badge">{{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+            <div style="display: inline-block;"><a href="/cart/"><img src="uploads/cart.png"  width="20" height="20"> Корзина </a> </div>
+                <div style="display: inline-block;" id="qty"> {{Cart::count()}} </div>
 
-                </a></div>
+
         </div>
     </div>
 
